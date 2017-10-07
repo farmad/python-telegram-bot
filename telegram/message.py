@@ -739,9 +739,9 @@ class Message(TelegramObject):
             text = escape_html(text)
 
             if entity.type == MessageEntity.TEXT_LINK:
-                insert = '<a href="{}">{}</a>'.format(entity.url, text)
+                insert = u'<a href="{}">{}</a>'.format(entity.url, text)
             elif (entity.type == MessageEntity.URL) and urled:
-                insert = '<a href="{0}">{0}</a>'.format(text)
+                insert = u'<a href="{0}">{0}</a>'.format(text)
             elif entity.type == MessageEntity.BOLD:
                 insert = '<b>' + text + '</b>'
             elif entity.type == MessageEntity.ITALIC:
@@ -806,9 +806,9 @@ class Message(TelegramObject):
             text = escape_markdown(text)
 
             if entity.type == MessageEntity.TEXT_LINK:
-                insert = '[{}]({})'.format(text, entity.url)
+                insert = u'[{}]({})'.format(text, entity.url)
             elif (entity.type == MessageEntity.URL) and urled:
-                insert = '[{0}]({0})'.format(text)
+                insert = u'[{0}]({0})'.format(text)
             elif entity.type == MessageEntity.BOLD:
                 insert = '*' + text + '*'
             elif entity.type == MessageEntity.ITALIC:
